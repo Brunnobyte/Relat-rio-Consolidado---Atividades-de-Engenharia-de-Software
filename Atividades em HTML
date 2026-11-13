@@ -1,0 +1,339 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Scrum: Todas as Atividades (01 a 04) – @SantosTrio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .fade-in {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .phone-frame {
+      box-shadow: 0 22px 45px -15px rgba(15, 23, 42, 0.25), 0 0 0 10px #1e293b, 0 0 0 12px #334155;
+    }
+    /* Custom scrollbar suave */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- ===================================================================== -->
+  <!-- CABEÇALHO PRINCIPAL E NAVEGAÇÃO ENTRE AS 4 ATIVIDADES                 -->
+  <!-- ===================================================================== -->
+  <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- Marca e Título -->
+        <div class="flex items-center gap-3">
+          <div class="bg-indigo-600 p-2.5 rounded-xl shadow-inner shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 class="text-base sm:text-xl font-extrabold tracking-tight">Simulador Scrum: Todas as Atividades (01 a 04)</h1>
+              <span class="text-xs font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 px-2.5 py-0.5 rounded-full">@SantosTrio</span>
+            </div>
+            <p class="text-xs text-slate-400">Engenharia de Software • Comparativo Interativo: <strong>Com Erro do PDF</strong> vs. <strong>Corrigido / Adaptado</strong></p>
+          </div>
+        </div>
+
+        <!-- Barra de Abas das 4 Atividades -->
+        <nav class="grid grid-cols-2 sm:flex bg-slate-800 p-1 rounded-xl border border-slate-700 gap-1">
+          <button id="main-tab-1" onclick="switchActivity(1)" class="px-3 py-2 rounded-lg text-xs font-bold transition-all bg-indigo-600 text-white shadow">
+            01. Introdução ao Scrum
+          </button>
+          <button id="main-tab-2" onclick="switchActivity(2)" class="px-3 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            02. Papéis & Eventos
+          </button>
+          <button id="main-tab-3" onclick="switchActivity(3)" class="px-3 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            03. Product Owner
+          </button>
+          <button id="main-tab-4" onclick="switchActivity(4)" class="px-3 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            04. Scrum Master
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CONTEÚDO PRINCIPAL                                                    -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- =================================================================== -->
+    <!-- ABA 01: INTRODUÇÃO AO SCRUM (CONSULTA DE HORÁRIOS - SALA 1)         -->
+    <!-- =================================================================== -->
+    <section id="section-act-1" class="space-y-6 fade-in">
+      <!-- Cabeçalho de Controle de Modo -->
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-md">Atividade 01 • Empirismo e Os 3 Pilares</span>
+            <span id="act1-status-pill" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200">
+              ● Modo Atual: Com Erro do PDF (Rodada 1)
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900">Protótipo de Consulta de Horários — Sala 1</h2>
+          <p class="text-xs sm:text-sm text-slate-600">Regra do cenário: <strong>9h e 11h estão Livres</strong>; <strong>10h está Ocupada</strong>. Teste os horários e compare as duas rodadas.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-300">
+            <button id="btn-act1-mode-error" onclick="setAct1Mode('error')" class="px-3 py-2 rounded-lg text-xs font-bold transition bg-red-600 text-white shadow-sm">
+              Rodada 1 (Com o Erro do PDF)
+            </button>
+            <button id="btn-act1-mode-fixed" onclick="setAct1Mode('fixed')" class="px-3 py-2 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900">
+              Rodada 2 (Corrigido / Adaptação)
+            </button>
+          </div>
+          <button onclick="resetAct1()" class="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition active:scale-95">
+            Resetar
+          </button>
+        </div>
+      </div>
+
+      <!-- Grade Principal: Smartphone + Painel Lateral -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Coluna Smartphone (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col items-center bg-slate-200/70 p-6 sm:p-8 rounded-3xl border border-slate-300/80">
+          <div class="mb-3 text-center">
+            <span id="act1-phone-badge" class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-red-600 text-white shadow-sm">
+              Rodada 1 • Resposta em Branco às 10h
+            </span>
+            <p class="text-xs text-slate-600 mt-1.5">Selecione um horário e toque em <strong>Consultar</strong></p>
+          </div>
+
+          <!-- Mockup Smartphone -->
+          <div class="w-full max-w-[320px] bg-white rounded-[2.2rem] overflow-hidden phone-frame flex flex-col h-[520px]">
+            <div class="bg-slate-900 text-white px-6 py-2.5 flex justify-between items-center text-[11px] font-medium">
+              <span>09:00</span>
+              <div class="w-16 h-3.5 bg-black rounded-full"></div>
+              <span>5G • 100%</span>
+            </div>
+
+            <div class="bg-slate-800 text-white px-5 py-4">
+              <p class="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold">Biblioteca • Sala 1</p>
+              <h3 class="text-base font-bold">Consultar Disponibilidade</h3>
+            </div>
+
+            <div class="p-4 flex-1 flex flex-col justify-between bg-slate-50 overflow-y-auto">
+              <div class="space-y-3">
+                <p class="text-xs font-bold text-slate-700">Escolha o horário da Sala 1:</p>
+                <div id="act1-slots-grid" class="grid grid-cols-3 gap-2">
+                  <!-- Botões 9h, 10h, 11h -->
+                </div>
+
+                <button onclick="consultAct1()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition active:scale-95">
+                  Consultar
+                </button>
+
+                <div class="pt-2">
+                  <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Área de Resposta:</p>
+                  <!-- ÁREA DE RESPOSTA: Na Rodada 1 às 10h fica LITERALMENTE EM BRANCO! -->
+                  <div id="act1-response-area" class="min-h-[135px] rounded-2xl border-2 border-dashed border-slate-300 bg-white p-4 flex flex-col items-center justify-center text-center transition-all">
+                    <span class="text-xs text-slate-400">Selecione um horário e clique em Consultar</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nota externa explicativa apenas após testar 10h na Rodada 1 -->
+              <div id="act1-helper-callout" class="mt-3"></div>
+            </div>
+
+            <div class="bg-white border-t border-slate-200 px-6 py-2.5 text-center text-[11px] font-semibold text-slate-400">
+              App Biblioteca • Consulta Sala 1
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Painel Lateral (7 cols) -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- Troca de Papéis entre Rodada 1 e Rodada 2 -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+            <h3 class="text-sm font-bold text-slate-900 mb-3">Distribuição e Troca de Responsabilidades (@SantosTrio)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p class="font-bold text-indigo-700">Integrante 1</p>
+                <p class="text-slate-600 mt-1">Rodada 1: <strong>Product Owner</strong></p>
+                <p class="text-slate-800 font-semibold">Rodada 2: Scrum Master</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p class="font-bold text-indigo-700">Integrante 2</p>
+                <p class="text-slate-600 mt-1">Rodada 1: <strong>Scrum Master</strong></p>
+                <p class="text-slate-800 font-semibold">Rodada 2: Developers</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p class="font-bold text-indigo-700">Integrante 3</p>
+                <p class="text-slate-600 mt-1">Rodada 1: <strong>Developers</strong></p>
+                <p class="text-slate-800 font-semibold">Rodada 2: Product Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Registro Automático das Respostas Testadas -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Registro Automático dos Testes (9h, 10h e 11h)</h3>
+                <p class="text-xs text-slate-500">Clique em "Consultar" no celular para registrar cada teste na tabela abaixo.</p>
+              </div>
+              <span id="act1-counter" class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">0/6 testados</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="border-b border-slate-200 text-slate-500 uppercase text-[11px]">
+                    <th class="py-2 px-3">Rodada</th>
+                    <th class="py-2 px-3">Horário</th>
+                    <th class="py-2 px-3">Resposta na Tela</th>
+                    <th class="py-2 px-3">Registro do Scrum Master</th>
+                  </tr>
+                </thead>
+                <tbody id="act1-logs-table" class="divide-y divide-slate-100"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- As 4 Respostas da Atividade 2 do PDF 01 -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+            <h3 class="text-sm font-bold text-slate-900">Respostas da Atividade 2 — Os 3 Pilares e Valores do Scrum</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200">
+                <p class="font-bold text-sky-900">1. Transparência</p>
+                <p class="text-slate-700 mt-1 leading-relaxed">Deixamos visíveis os três horários (9h, 10h, 11h), o botão "Consultar" e o objetivo de verificar a disponibilidade da Sala 1 para que o colega testasse o protótipo.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200">
+                <p class="font-bold text-amber-900">2. Inspeção</p>
+                <p class="text-slate-700 mt-1 leading-relaxed">Às 9h o colega identificou "Livre", mas às 10h a tela ficou em branco e ele não soube se a sala estava ocupada ou se o aplicativo havia travado.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+                <p class="font-bold text-emerald-900">3. Adaptação</p>
+                <p class="text-slate-700 mt-1 leading-relaxed">Acrescentamos a mensagem explícita "Ocupado (Sala indisponível neste horário)" às 10h; no segundo teste, o colega distinguiu imediatamente livre e ocupado.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-indigo-50 border border-indigo-200">
+                <p class="font-bold text-indigo-900">4. Valor: Abertura e Coragem</p>
+                <p class="text-slate-700 mt-1 leading-relaxed">O colega teve abertura para relatar que a tela em branco o confundiu, e o trio teve coragem de admitir a falha na primeira versão e corrigi-la na Rodada 2.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- ABA 02: PAPÉIS, ARTEFATOS E EVENTOS (RESERVA DE SALAS - SALA 1)     -->
+    <!-- =================================================================== -->
+    <section id="section-act-2" class="hidden space-y-6 fade-in">
+      <!-- Cabeçalho de Controle de Modo -->
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-md">Atividade 02 • Reunião Diária, Revisão e Retrospectiva</span>
+            <span id="act2-status-pill" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200">
+              ● Modo Atual: Antes da Reunião Diária (Com Erro do PDF)
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900">Função: Reservar Sala de Estudo — Sala 1</h2>
+          <p class="text-xs sm:text-sm text-slate-600">Cenário: <strong>9h Livre</strong> e <strong>10h Ocupada</strong>. Compare o rascunho incompleto (antes da Diária) com o plano ajustado.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-300">
+            <button id="btn-act2-mode-error" onclick="setAct2Mode('error')" class="px-3 py-2 rounded-lg text-xs font-bold transition bg-red-600 text-white shadow-sm">
+              Antes da Reunião Diária (Com Erro)
+            </button>
+            <button id="btn-act2-mode-fixed" onclick="setAct2Mode('fixed')" class="px-3 py-2 rounded-lg text-xs font-bold transition text-slate-600 hover:text-slate-900">
+              Depois da Reunião Diária (Corrigido)
+            </button>
+          </div>
+
+          <button id="btn-act2-review-toggle" onclick="toggleAct2Review()" class="px-3 py-2.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 bg-white border-slate-300 text-slate-700 hover:bg-slate-50">
+            <span id="act2-review-dot" class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+            Revisão da Sprint (Melhoria)
+          </button>
+
+          <button onclick="resetAct2()" class="px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition active:scale-95">
+            Resetar
+          </button>
+        </div>
+      </div>
+
+      <!-- Grade Principal: Smartphone + Artefatos Scrum -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Coluna Smartphone (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col items-center bg-slate-200/70 p-6 sm:p-8 rounded-3xl border border-slate-300/80">
+          <div class="mb-3 text-center">
+            <span id="act2-phone-badge" class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-red-600 text-white shadow-sm">
+              Rascunho Incompleto • Só Confirma
+            </span>
+            <p class="text-xs text-slate-600 mt-1.5">Execute o <strong>Teste A (9h)</strong> e o <strong>Teste B (10h)</strong></p>
+          </div>
+
+          <!-- Mockup Smartphone -->
+          <div class="w-full max-w-[320px] bg-white rounded-[2.2rem] overflow-hidden phone-frame flex flex-col h-[530px]">
+            <div class="bg-slate-900 text-white px-6 py-2.5 flex justify-between items-center text-[11px] font-medium">
+              <span>09:15</span>
+              <div class="w-16 h-3.5 bg-black rounded-full"></div>
+              <span>5G • 100%</span>
+            </div>
+
+            <div id="act2-phone-header" class="bg-indigo-600 text-white px-5 py-4 transition-colors">
+              <p class="text-[11px] uppercase tracking-wider text-indigo-200 font-semibold">Biblioteca • Sala 1</p>
+              <h3 class="text-base font-bold">Reserva de Salas de Estudo</h3>
+            </div>
+
+            <div id="act2-phone-body" class="p-4 flex-1 flex flex-col justify-between bg-slate-50 overflow-y-auto">
+              <!-- Renderizado via JS -->
+            </div>
+
+            <div class="bg-white border-t border-slate-200 px-6 py-2.5 flex justify-around text-[11px] font-semibold text-slate-400">
+              <span class="text-indigo-600">Salas</span>
+              <span>Minhas Reservas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Painel Lateral (7 cols) -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- Registro Automático dos Testes A e B -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">Registro Automático dos Testes A e B</h3>
+                <p class="text-xs text-slate-500">No modo Corrigido, execute 9h (Teste A) e 10h (Teste B) para validar os critérios de conclusão.</p>
+              </div>
+              <span id="act2-tests-counter" class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">0/2 aprovados</span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="border-b border-slate-200 text-slate-500 uppercase text-[11px]">
+                    <th class="py-2 px-3">Teste</th>
